@@ -40,28 +40,37 @@ function setExpression(value) {
     return;
   }
 
-  console.log("value", value);
 
   let { surprised, angry, disgusted, fearful, happy, neutral, sad } =
     value && value[0] && value[0].expressions;
 
+  console.log(value[0].expressions)
+
   let colorClass = document.getElementById("color");
 
   let color = "white"
+  let mood = "Neutral"
 
   if (angry > 0.8) {
+    mood = "Angry"
     color = "red";
   } else if (disgusted > 0.8) {
+    mood = "Disgusted"
     color = "chartreuse";
   } else if (fearful > 0.8) {
+    mood = "Fearful"
     color = "yellow";
   } else if (happy > 0.8) {
+    mood = "Happy"
     color = "green";
   } else if (neutral > 0.8) {
+    mood = "Neutral"
     color = "black";
   } else if (sad > 0.8) {
+    mood = "Sad"
     color = "blue";
   } else if (surprised > 0.8) {
+    mood = "Surprised"
     color = "white";
   } else {
     color = "white";

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Mood</title>
   <script defer src="face-api.min.js"></script>
   <script defer src="script.js"></script>
   <style>
@@ -19,6 +19,7 @@
       align-items: center;
       flex-direction: column;
       transition: background-color 500ms linear;
+      font-family: 'Courier New', Courier, monospace;
     }
 
     canvas {
@@ -28,10 +29,11 @@
 </head>
 
 <body>
-  <h1 style="position: absolute;top: 40px;">I created this all by myself fixed preload attribute</h1>
+  <h1 style="position: absolute;top: 40px;">Disclaimer: May cause seizures</h1>
   <video id="video" width="720" height="560" preload="auto" autoplay="" muted=""></video>
   <h1 id="color"
-    style="background-color:white; border-radius: 5%; padding: 5px 20px 5px 20px; border: 1px solid black; position: absolute;bottom: 40px;">
+    style="background-color:white; border-radius: 5%; padding: 5px 40px 5px 40px; border: 1px solid black; position: absolute;bottom: 40px;">
+    MOOD: 
   </h1>
 </body>
 
