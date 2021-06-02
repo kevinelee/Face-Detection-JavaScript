@@ -30,6 +30,8 @@ video.addEventListener("play", () => {
     faceapi.draw.drawDetections(canvas, resizedDetections);
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+    //view the api response
     // console.log(detections);
     setExpression(detections);
   }, 100);
@@ -44,7 +46,8 @@ function setExpression(value) {
   let { surprised, angry, disgusted, fearful, happy, neutral, sad } =
     value && value[0] && value[0].expressions;
 
-  console.log(value[0].expressions)
+    //to view specific expressions
+  // console.log(value[0].expressions)
 
   let colorClass = document.getElementById("color");
 
@@ -52,28 +55,29 @@ function setExpression(value) {
   let mood = "Neutral"
 
   if (angry > 0.8) {
-    mood = "Angry"
+    mood = "Mood: Angry"
     color = "red";
   } else if (disgusted > 0.8) {
-    mood = "Disgusted"
+    mood = "Mood: Disgusted"
     color = "chartreuse";
   } else if (fearful > 0.8) {
-    mood = "Fearful"
+    mood = "Mood: Fearful"
     color = "yellow";
   } else if (happy > 0.8) {
-    mood = "Happy"
+    mood = "Mood: Happy"
     color = "green";
   } else if (neutral > 0.8) {
-    mood = "Neutral"
+    mood = "Mood: Neutral"
     color = "black";
   } else if (sad > 0.8) {
-    mood = "Sad"
+    mood = "Mood: Sad"
     color = "blue";
   } else if (surprised > 0.8) {
-    mood = "Surprised"
+    mood = "Mood: Surprised"
     color = "white";
   } else {
-    color = "white";
+    mood = "Mood: Neutral"
+    color = "black";
   }
 
   // var red = Math.floor(angry * 100 + sad * 100 + surprised * 55 + 50 );
@@ -82,7 +86,7 @@ function setExpression(value) {
 
   // var color = "rgb(" + red + "," + green + "," + blue + ")";
 
-  colorClass.textContent = color;
+  colorClass.textContent = mood;
 
   document.body.style.backgroundColor = color;
   return color;
